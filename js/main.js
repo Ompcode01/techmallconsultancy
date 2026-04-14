@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     const pre = document.getElementById('preloader');
     if (pre) pre.classList.add('hide');
-  }, 2600);
+  }, 1500);
 });
 
 // ══════════════════════════════════
