@@ -7,12 +7,37 @@
 // ══════════════════════════════════
 // PRELOADER
 // ══════════════════════════════════
-window.addEventListener('load', () => {
+(function initPreloader() {
+  const pre = document.getElementById('preloader');
+  if (!pre) return;
+
+  let hidden = false;
+  const minDuration = 2000;
+  const startTime = Date.now();
+
+  function hidePreloader(delay = 0) {
+    if (hidden) return;
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, minDuration - elapsed);
+    hidden = true;
+    setTimeout(() => {
+      pre.classList.add('hide');
+    }, Math.max(delay, remaining));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    hidePreloader(0);
+  }, { once: true });
+
+  window.addEventListener('load', () => {
+    hidePreloader(0);
+  }, { once: true });
+
+  // Safety fallback in case the normal events behave unexpectedly.
   setTimeout(() => {
-    const pre = document.getElementById('preloader');
-    if (pre) pre.classList.add('hide');
-  }, 1500);
-});
+    hidePreloader(0);
+  }, minDuration + 300);
+})();
 
 // ══════════════════════════════════
 // SCROLL PROGRESS + NAVBAR
@@ -57,6 +82,9 @@ window.addEventListener('load', () => {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const particleCount = prefersReducedMotion ? 0 : (isMobile ? 48 : 130);
 
   function resize() {
     W = canvas.width = window.innerWidth;
@@ -86,7 +114,12 @@ window.addEventListener('load', () => {
     }
   }
 
-  for (let i = 0; i < 130; i++) particles.push(new Particle());
+  for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+  if (!particles.length) {
+    ctx.clearRect(0, 0, W, H);
+    return;
+  }
 
   function drawConnections() {
     for (let i = 0; i < particles.length; i++) {
