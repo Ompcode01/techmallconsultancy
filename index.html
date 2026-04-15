@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Tech Mall Consultancy — IT Services, Digital Marketing, Legal & CA Services, Career Consultancy. Led by Ashish Kumar Mall, Ayush Aaryan & Omparkash Pandey."/>
+<title>Tech Mall Consultancy | Empowering Your Digital Future</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ══ PRELOADER ══ -->
+<div id="preloader">
+  <div class="pre-ring"></div>
+  <div class="pre-logo">TECH MALL CONSULTANCY</div>
+  <div class="pre-bar"><div class="pre-fill"></div></div>
+  <div class="pre-text">INITIALIZING SYSTEM...</div>
+</div>
+
+<!-- ══ SCROLL PROGRESS ══ -->
+<div id="scroll-progress"></div>
+
+<!-- ══ WHATSAPP ══ -->
+<a id="wa-btn" href="https://wa.me/9272192180" target="_blank" rel="noopener" title="Chat on WhatsApp">💬</a>
+
+<!-- ══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo-wrap">
+    <span class="nav-logo">TECH MALL</span>
+    <span class="nav-logo-sub">Consultancy</span>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="theme-btn" id="themeToggle" title="Toggle theme">🌙</button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🚀 Next-Gen Consultancy Services — Est. 2024</div>
+
+    <h1 class="hero-title">
+      <span class="line1">Empowering Your</span>
+      <span class="line2">Digital Future</span>
+    </h1>
+
+    <p class="hero-subtitle">Tech Mall Consultancy – Your one-stop solution for Startup, IT & Digital needs.<br>
+      Everything under one roof from IT consulting and software development to digital marketing, we help your business grow smarter, faster, and stronger.
+    </p>
+    <div class="hero-typing">
+      <span id="typing-text"></span><span class="typing-cursor"></span>
+    </div>
+
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scrollToContact()">
+        <span>⚡ Contact Us</span>
+      </button>
+      <button class="btn-ghost" onclick="scrollToSection('services')">
+        <span>🗂 View Services</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:56px">
+      <div class="section-label" style="justify-content:center">Our Services</div>
+      <h2 class="section-title reveal">What We <span class="accent">Offer</span></h2>
+      <div class="section-line" style="margin: 0 auto 0"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <span class="service-icon">⚙️</span>
+        <h3>IT Services & IT Consulting</h3>
+        <p>We provide comprehensive IT solutions including website development, app development, and customized software solutions. Our team has strong experience in IT consulting and has successfully delivered multiple projects, ensuring reliable and efficient digital solutions for businesses.</p>
+        <!--<span class="service-tag">TECH BACKBONE</span> -->
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">📣</span>
+        <h3>Digital Marketing</h3>
+        <p>We offer complete digital marketing services including SEO, strong digital presence building, PPC campaigns, Google Ads, Meta Ads, content strategy, and brand identity development to amplify your online presence exponentially.</p>
+        <!-- <span class="service-tag">GROWTH ENGINE</span> -->
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-icon">⚖️</span>
+        <h3>Legal Services</h3>
+        <p> We provide complete CA consultancy services including company registration, GST filing, tax planning, and audit support. Our expert CA team ensures proper guidance and smooth handling of all financial and compliance-related processes.</p>
+        <!-- <span class="service-tag">COMPLIANCE SHIELD</span> -->
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-icon">⚖️</span>
+        <h3>CA Services</h3>
+        <p>Company Registration, GST Filing, Tax Planning, Compliance, Audit Support, and CA Firm Consultancy to keep your business legally sound and financially healthy.</p>
+        <!-- <span class="service-tag">COMPLIANCE SHIELD</span> -->
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <span class="service-icon">🎓</span>
+        <h3>Career Consultancy</h3>
+        <p>Whether you have completed 12th and want to pursue Medical(MBBS) or Engineering(B.Tech), our expert team has been guiding students over the years in admissions and career planning. We also provide guidance for higher studies such as Master’s programs and international education opportunities.</p>
+        <!-- <span class="service-tag">CAREER LAUNCH</span> -->
+      </div>
+    </div>
+  </div>
+  <div>
+    <button class="btn-primary" style="margin:40px auto 0; display:block" onclick="scrollToContact()">
+      <span style="font-size:1.1rem; font-weight:500">Explore All Services</span>
+    </button>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     PORTFOLIO
+═══════════════════════════════════════════ 
+<section id="portfolio">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:40px">
+      <div class="section-label" style="justify-content:center">Our Work</div>
+      <h2 class="section-title reveal">Featured <span class="accent">Projects</span></h2>
+      <div class="section-line" style="margin: 0 auto 0"></div>
+    </div>
+
+    <!- Filters ->
+    <div class="portfolio-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="marketing">Marketing</button>
+      <button class="filter-btn" data-filter="legal">Legal Tech</button>
+      <button class="filter-btn" data-filter="career">Career</button>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item reveal" data-category="web" style="transition:opacity .4s,transform .4s">
+        <div class="portfolio-bg" style="background:linear-gradient(135deg,#0a1a3a,#1a0a3a)">
+          <span style="font-size:4rem;filter:drop-shadow(0 0 24px #00d4ff)">🌐</span>
+        </div>
+        <span class="portfolio-tag">WEB DEV</span>
+        <div class="portfolio-overlay">
+          <h4>E-Commerce Platform</h4>
+          <p>// Full-stack development · React + Node</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal reveal-delay-1" data-category="marketing" style="transition:opacity .4s,transform .4s">
+        <div class="portfolio-bg" style="background:linear-gradient(135deg,#0a2a1a,#1a2a0a)">
+          <span style="font-size:4rem;filter:drop-shadow(0 0 24px #00ff88)">📈</span>
+        </div>
+        <span class="portfolio-tag">MARKETING</span>
+        <div class="portfolio-overlay">
+          <h4>300% Growth Campaign</h4>
+          <p>// SEO + Social Media · 6 months</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal reveal-delay-2" data-category="web" style="transition:opacity .4s,transform .4s">
+        <div class="portfolio-bg" style="background:linear-gradient(135deg,#2a0a1a,#1a0a2a)">
+          <span style="font-size:4rem;filter:drop-shadow(0 0 24px #ff00aa)">📱</span>
+        </div>
+        <span class="portfolio-tag">MOBILE APP</span>
+        <div class="portfolio-overlay">
+          <h4>FinTech Mobile App</h4>
+          <p>// iOS + Android · React Native</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-category="legal" style="transition:opacity .4s,transform .4s">
+        <div class="portfolio-bg" style="background:linear-gradient(135deg,#1a1a0a,#0a1a2a)">
+          <span style="font-size:4rem;filter:drop-shadow(0 0 24px #ffcc00)">⚖️</span>
+        </div>
+        <span class="portfolio-tag">LEGAL TECH</span>
+        <div class="portfolio-overlay">
+          <h4>GST Portal Integration</h4>
+          <p>// Compliance automation · 50+ firms</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal reveal-delay-1" data-category="career" style="transition:opacity .4s,transform .4s">
+        <div class="portfolio-bg" style="background:linear-gradient(135deg,#0a2a2a,#2a0a2a)">
+          <span style="font-size:4rem;filter:drop-shadow(0 0 24px #00ffe7)">🎓</span>
+        </div>
+        <span class="portfolio-tag">CAREER</span>
+        <div class="portfolio-overlay">
+          <h4>University Admissions Portal</h4>
+          <p>// 200+ students placed abroad</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal reveal-delay-2" data-category="web" style="transition:opacity .4s,transform .4s">
+        <div class="portfolio-bg" style="background:linear-gradient(135deg,#1a0a0a,#0a0a2a)">
+          <span style="font-size:4rem;filter:drop-shadow(0 0 24px #7b2fff)">☁️</span>
+        </div>
+        <span class="portfolio-tag">CLOUD</span>
+        <div class="portfolio-overlay">
+          <h4>Cloud Migration Project</h4>
+          <p>// AWS infrastructure · Zero downtime</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+-->
+
+<!-- ══════════════════════════════════════════
+     CLIENT PROJECTS
+═══════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:56px">
+      <div class="section-label" style="justify-content:center">Our Work</div>
+      <h2 class="section-title reveal">Client <span class="accent">Projects</span></h2>
+      <div class="section-line" style="margin: 0 auto 0"></div>
+      <p style="color:var(--text-muted);margin-top:18px;font-size:0.95rem;max-width:560px;margin-left:auto;margin-right:auto">Real websites, real businesses — built and delivered by Tech Mall Consultancy.</p>
+    </div>
+
+    <div class="client-projects-grid">
+
+      <!-- Mahadev Laptop -->
+      <div class="client-project-card reveal reveal-delay-1">
+        <div class="client-project-preview">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">mahadev-laptops.vercel.app</div>
+          </div>
+          <div class="client-project-screen">
+            <img src="img/works/mahadev_laptops.png" alt="Mahadev Laptop website preview" class="client-project-image"/>
+          </div>
+        </div>
+        <div class="client-project-info">
+          <div class="client-tag" style="color:var(--neon-blue);border-color:rgba(0,212,255,0.3)">WEB DEV</div>
+          <h3 class="client-project-name">Mahadev Laptop</h3>
+          <p class="client-project-desc">Full website for Pune's trusted laptop store — new, refurbished, repairs &amp; spare parts all under one roof.</p>
+          <a href="https://mahadev-laptops.vercel.app" target="_blank" rel="noopener" class="client-visit-btn">
+            <span>Visit Site</span> <span class="visit-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Ultimate Hardcore Fitness -->
+      <div class="client-project-card reveal reveal-delay-2">
+        <div class="client-project-preview">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">ultimate-hardcore-fitness-website.vercel.app</div>
+          </div>
+          <div class="client-project-screen">
+            <img src="img/works/ultimate_hardcore_fitness.png" alt="Ultimate Hardcore Fitness website preview" class="client-project-image"/>
+          </div>
+        </div>
+        <div class="client-project-info">
+          <div class="client-tag" style="color:var(--neon-pink);border-color:rgba(255,0,170,0.3)">FITNESS</div>
+          <h3 class="client-project-name">Ultimate Hardcore Fitness</h3>
+          <p class="client-project-desc">Dynamic gym website featuring champion athletes, blog, events, and WhatsApp chat integration.</p>
+          <a href="https://ultimate-hardcore-fitness-website.vercel.app/gym.html" target="_blank" rel="noopener" class="client-visit-btn">
+            <span>Visit Site</span> <span class="visit-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Radhe Automobiles -->
+      <div class="client-project-card reveal reveal-delay-1">
+        <div class="client-project-preview">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">radheautomobiles.com</div>
+          </div>
+          <div class="client-project-screen">
+            <img src="img/works/radhe_automobiles.png" alt="Radhe Automobiles website preview" class="client-project-image"/>
+          </div>
+        </div>
+        <div class="client-project-info">
+          <div class="client-tag" style="color:var(--neon-green);border-color:rgba(0,255,136,0.3)">AUTOMOTIVE</div>
+          <h3 class="client-project-name">Radhe Automobiles</h3>
+          <p class="client-project-desc">Professional website for a locally-owned motorcycle service and repair garage with online booking.</p>
+          <a href="https://radheautomobiles.com" target="_blank" rel="noopener" class="client-visit-btn">
+            <span>Visit Site</span> <span class="visit-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Rescuer EduSkills -->
+      <div class="client-project-card reveal reveal-delay-2">
+        <div class="client-project-preview">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">rescuer-eduskills.vercel.app</div>
+          </div>
+          <div class="client-project-screen">
+            <img src="img/works/rescuer_eduskils.png" alt="Rescuer EduSkills website preview" class="client-project-image"/>
+          </div>
+        </div>
+        <div class="client-project-info">
+          <div class="client-tag" style="color:var(--neon-cyan);border-color:rgba(0,255,231,0.3)">EDTECH</div>
+          <h3 class="client-project-name">Rescuer EduSkills</h3>
+          <p class="client-project-desc">Full-featured education platform empowering students across rural and urban India with affordable skill courses.</p>
+          <a href="https://rescuer-eduskills.vercel.app" target="_blank" rel="noopener" class="client-visit-btn">
+            <span>Visit Site</span> <span class="visit-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- V3 Software Technology -->
+      <div class="client-project-card reveal reveal-delay-1">
+        <div class="client-project-preview">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">v3softech-website.vercel.app</div>
+          </div>
+          <div class="client-project-screen">
+            <img src="img/works/v3.png" alt="V3 Software Technology website preview" class="client-project-image"/>
+          </div>
+        </div>
+        <div class="client-project-info">
+          <div class="client-tag" style="color:#00d4ff;border-color:rgba(0,212,255,0.3)">CAD &amp; TRAINING</div>
+          <h3 class="client-project-name">V3 Software Technology</h3>
+          <p class="client-project-desc">Pune's trusted CAD design &amp; training institute offering 100% placement-backed programs across Mechanical, Civil, Electrical &amp; IT.</p>
+          <a href="https://v3softech-website.vercel.app" target="_blank" rel="noopener" class="client-visit-btn">
+            <span>Visit Site</span> <span class="visit-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Adv. Gauraw Kumar -->
+      <div class="client-project-card reveal reveal-delay-2">
+        <div class="client-project-preview">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">advgaurawkumar.com</div>
+          </div>
+          <div class="client-project-screen">
+            <img src="img/works/adv_gaurav_Kumar.png" alt="Adv. Gauraw Kumar website preview" class="client-project-image"/>
+          </div>
+        </div>
+        <div class="client-project-info">
+          <div class="client-tag" style="color:var(--neon-purple);border-color:rgba(123,47,255,0.3)">LEGAL</div>
+          <h3 class="client-project-name">Adv. Gauraw Kumar</h3>
+          <p class="client-project-desc">Premium law firm website for a premier full-service practice in Ranchi, Jharkhand covering Civil, Criminal &amp; Corporate law.</p>
+          <a href="https://advgaurawkumar.com" target="_blank" rel="noopener" class="client-visit-btn">
+            <span>Visit Site</span> <span class="visit-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Left: Text + Team -->
+      <div class="about-text reveal">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Who We <span class="accent">Are</span></h2>
+        <div class="section-line"></div>
+
+        <p><strong>Tech Mall Consultancy</strong> is a full-spectrum digital powerhouse delivering cutting-edge solutions across IT, Digital Marketing, Legal Consultancy, and Career Guidance.</p>
+        <p>We blend <strong>technical excellence</strong> with strategic insight to help businesses and individuals unlock their full potential in the digital age. From startups to enterprises — we're the trusted growth partner for hundreds of clients across India.</p>
+        <p>Our team of certified experts, seasoned consultants, and digital strategists work in synergy to craft tailored solutions that deliver measurable results — fast.</p>
+
+        <!-- Team -->
+        <div class="team-section">
+          <div class="team-label">// Leadership Team</div>
+          <div class="team-grid">
+            <!-- Founder -->
+            <div class="team-card">
+              <div class="team-photo-wrap founder-photo-wrap">
+                <img src="img/ashish.jpeg" alt="Ashish Kumar Mall" class="team-photo founder-photo"/>
+                <div class="team-photo-glow" style="--glow-color:rgba(0,212,255,0.5)"></div>
+              </div>
+              <div class="team-name">Ashish Kumar Mall</div>
+              <div class="team-role">Founder & CEO</div>
+              <span class="founder-badge">Founder</span>
+            </div>
+            <!-- Co-Founder 1 -->
+            <div class="team-card">
+              <div class="team-photo-wrap">
+                <img src="img/ayush.png" alt="Ayush Aaryan" class="team-photo"/>
+                <div class="team-photo-glow" style="--glow-color:rgba(255,0,170,0.4)"></div>
+              </div>
+              <div class="team-name">Ayush Aaryan</div>
+              <div class="team-role">Co-Founder & COO</div>
+              <span class="founder-badge" style="border-color:rgba(0,255,231,0.4);color:var(--neon-cyan)">Co-Founder</span>
+            </div>
+            <!-- Co-Founder 2 -->
+            <div class="team-card">
+              <div class="team-photo-wrap">
+                <img src="img/om.jpeg" alt="Omprakash Pandey" class="team-photo"/>
+                <div class="team-photo-glow" style="--glow-color:rgba(123,47,255,0.5)"></div>
+              </div>
+              <div class="team-name">Omprakash Pandey</div>
+              <div class="team-role">Co-Founder & CTO</div>
+              <span class="founder-badge" style="border-color:rgba(0,255,231,0.4);color:var(--neon-cyan)">Co-Founder</span>
+            </div>
+            <div class="team-card">
+              <div class="team-photo-wrap">
+                <img src="img/nilesh.jpeg" alt="Nilesh Phad" class="team-photo"/>
+                <div class="team-photo-glow" style="--glow-color:rgba(0,255,231,0.4)"></div>
+              </div>
+              <div class="team-name">Nilesh Phad</div>
+              <div class="team-role">Advisor, CRM Maharashtra</div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo-wrap">
+                <img src="img/neeraj.jpeg" alt="Neeraj Yadav" class="team-photo"/>
+                <div class="team-photo-glow" style="--glow-color:rgba(0,255,136,0.4)"></div>
+              </div>
+              <div class="team-name">Neeraj Yadav</div>
+              <div class="team-role">CRM North-India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Circuit + Stats -->
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="circuit-visual">
+          <img src="\img\TechMallConsultancy.png" alt="Tech Mall Consultancy" style="width:100%; height:auto; border-radius:12px; filter:drop-shadow(0 0 16px #00d4ff)">
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num"><span class="counter" data-target="30">0</span>+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num"><span class="counter" data-target="15">0</span>+</div>
+            <div class="stat-label">Projects Done</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num"><span class="counter" data-target="3">0</span>+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">8<span style="color:var(--neon-cyan);font-size:1.4rem">+</span></div>
+            <div class="stat-label">Domains Covered</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:56px">
+      <div class="section-label" style="justify-content:center">Get In Touch</div>
+      <h2 class="section-title reveal">Let's Build Something <span class="accent">Together</span></h2>
+      <div class="section-line" style="margin: 0 auto 0"></div>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="reveal">
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <span class="contact-info-icon">👤</span>
+            <div><h4>Founder</h4><p>Ashish Kumar Mall</p></div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📍</span>
+            <div><h4>Location</h4><p>Tech Mall Office, India</p></div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">📞</span>
+            <div><h4>Phone</h4><p>+91 92721 92180</p></div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">✉️</span>
+            <div><h4>Email</h4><p>info@techmallconsultancy.com</p></div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-icon">🕐</span>
+            <div><h4>Working Hours</h4><p>Mon–Sat &nbsp;9 AM – 7 PM IST</p></div>
+          </div>
+        </div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0!2d77.2090212!3d28.6138954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMTInMzIuNSJF!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" title="Office Location"></iframe>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal reveal-delay-2">
+        <div class="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" placeholder=" " autocomplete="name"/>
+            <label for="name">Your Full Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder=" " autocomplete="email"/>
+            <label for="email">Email Address</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder=" " autocomplete="tel"/>
+            <label for="phone">Phone Number</label>
+          </div>
+          <div class="form-group">
+            <select id="service">
+              <option value="" disabled selected>Select a Service</option>
+              <option>Digital Marketing</option>
+              <option>IT Services</option>
+              <option>Legal &amp; CA Services</option>
+              <option>Career Consultancy</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder=" "></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button class="btn-submit" onclick="handleSubmit()">⚡ Send Message</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <span class="nav-logo">TECH MALL</span>
+        <span class="nav-logo-sub" style="display:block;margin-bottom:16px">Consultancy</span>
+        <p>Empowering businesses and individuals with cutting-edge IT, Marketing, Legal, and Career solutions. Founded by Ashish Kumar Mall with co-founders Ayush Aaryan &amp; Omparkash Pandey.</p>
+        <div class="footer-socials">
+          <a class="social-icon" href="https://www.linkedin.com/company/tech-mall-consultancy/" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a class="social-icon" href="https://x.com/TechMall81038/" title="Twitter / X" aria-label="Twitter">𝕏</a>
+          <a class="social-icon" href="https://www.instagram.com/tm_cservices/" title="Instagram" aria-label="Instagram">📷</a>
+          <a class="social-icon" href="https://www.facebook.com/share/1Cwe7ajVvv/" title="Facebook" aria-label="Facebook">f</a>
+          <!-- <a class="social-icon" href="#" title="YouTube" aria-label="YouTube">▶</a> -->
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Digital Marketing</a></li>
+          <li><a href="#services">IT Services</a></li>
+          <li><a href="#services">Legal &amp; CA Services</a></li>
+          <li><a href="#services">Career Consultancy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us &amp; Team</a></li>
+          <!-- <li><a href="#portfolio">Services</a></li> -->
+          <li><a href="#testimonials">Client Projects</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>2026 <span>Tech Mall Consultancy</span>. All rights reserved.</p>
+      <p>Founded by <span>Ashish </span> · Co-founded by <span>Ayush</span> &amp; <span>Omprakash Pandey</span> · Advisor & CRM <span>Nilesh</span> &amp; <span>Neeraj Yadav</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
