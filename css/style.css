@@ -498,6 +498,56 @@ h2.section-title .accent {
   display: flex;
   flex-direction: column;
 }
+.project-slider {
+  background:
+    radial-gradient(circle at top right, rgba(255,138,76,0.24), transparent 45%),
+    linear-gradient(180deg, rgba(18,10,34,0.88), rgba(6,8,18,0.98));
+}
+.project-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(18px) scale(0.985);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.project-slide.is-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+.project-slider .client-project-image {
+  object-fit: contain;
+  object-position: center;
+  padding: 14px;
+  background: transparent;
+}
+.project-slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(3, 6, 18, 0.62);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+.project-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.project-slider-dot.is-active {
+  background: #ff8a4c;
+  transform: scale(1.15);
+  box-shadow: 0 0 14px rgba(255,138,76,0.55);
+}
 .client-project-image {
   width: 100%;
   height: 100%;
@@ -590,6 +640,30 @@ h2.section-title .accent {
   color: var(--text-muted);
   line-height: 1.65;
   flex: 1;
+}
+.client-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 2px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,255,136,0.28);
+  background: rgba(0,255,136,0.08);
+  color: var(--neon-green);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.client-availability::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 12px currentColor;
 }
 .client-visit-btn {
   display: inline-flex;
@@ -754,13 +828,36 @@ footer { background: #010308; border-top: 1px solid var(--border); padding: 64px
   nav { padding: 13px 20px; }
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
-  nav.menu-open .nav-links {
-    display: flex; flex-direction: column;
-    position: fixed; inset: 0; top: 62px;
-    background: rgba(2,5,16,0.97); justify-content: center;
-    align-items: center; gap: 36px; z-index: 999; backdrop-filter: blur(24px);
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 20px;
+    width: min(260px, calc(100vw - 40px));
+    padding: 18px 20px;
+    background: rgba(2,5,16,0.96);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
-  nav.menu-open .nav-links a { font-size: 1.1rem; letter-spacing: 3px; }
+  nav.menu-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 18px;
+    z-index: 999;
+  }
+  nav.menu-open .nav-links a {
+    display: block;
+    width: 100%;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0,212,255,0.08);
+  }
+  nav.menu-open .nav-links li:last-child a { border-bottom: none; padding-bottom: 0; }
   .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -805,8 +902,6 @@ footer { background: #010308; border-top: 1px solid var(--border); padding: 64px
   .about-stats { grid-template-columns: 1fr 1fr; }
   /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  /* Nav mobile menu */
-  nav.menu-open .nav-links { gap: 28px; }
   /* Founder photo bigger on mobile */
   .founder-photo-wrap { width: 120px; height: 120px; }
 }

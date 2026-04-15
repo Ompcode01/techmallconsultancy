@@ -207,6 +207,13 @@ window.addEventListener('load', () => {
     hbg.classList.toggle('open');
   });
 
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) {
+      nav.classList.remove('menu-open');
+      hbg.classList.remove('open');
+    }
+  });
+
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', () => {
       nav.classList.remove('menu-open');
@@ -235,6 +242,39 @@ window.addEventListener('load', () => {
         item.style.pointerEvents = match ? 'auto' : 'none';
       });
     });
+  });
+})();
+
+// ══════════════════════════════════
+// PROJECT SLIDER
+// ══════════════════════════════════
+(function initProjectSliders() {
+  const sliders = document.querySelectorAll('.project-slider');
+  if (!sliders.length) return;
+
+  sliders.forEach(slider => {
+    const slides = slider.querySelectorAll('.project-slide');
+    const dots = slider.querySelectorAll('.project-slider-dot');
+    const intervalMs = Number(slider.dataset.sliderInterval) || 3000;
+    let currentIndex = 0;
+
+    if (slides.length < 2) return;
+
+    function render(index) {
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('is-active', slideIndex === index);
+      });
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('is-active', dotIndex === index);
+      });
+    }
+
+    render(currentIndex);
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      render(currentIndex);
+    }, intervalMs);
   });
 })();
 
