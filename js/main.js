@@ -1,7 +1,11 @@
 /* ═══════════════════════════════════════════════════
    TECH MALL CONSULTANCY — MAIN JAVASCRIPT
+
    ═══════════════════════════════════════════════════ */
 
+
+
+   
 'use strict';
 
 // ══════════════════════════════════
@@ -9,10 +13,15 @@
 // ══════════════════════════════════
 (function initPreloader() {
   const pre = document.getElementById('preloader');
-  if (!pre) return;
+  const body = document.body;
+  if (!pre) {
+    body?.classList.remove('is-loading');
+    body?.classList.add('is-ready');
+    return;
+  }
 
   let hidden = false;
-  const minDuration = 2000;
+  const minDuration = 650;
   const startTime = Date.now();
 
   function hidePreloader(delay = 0) {
@@ -22,6 +31,9 @@
     hidden = true;
     setTimeout(() => {
       pre.classList.add('hide');
+      pre.setAttribute('aria-hidden', 'true');
+      body?.classList.remove('is-loading');
+      body?.classList.add('is-ready');
     }, Math.max(delay, remaining));
   }
 
@@ -36,7 +48,7 @@
   // Safety fallback in case the normal events behave unexpectedly.
   setTimeout(() => {
     hidePreloader(0);
-  }, minDuration + 300);
+  }, minDuration + 450);
 })();
 
 // ══════════════════════════════════
@@ -45,12 +57,22 @@
 (function initScroll() {
   const bar = document.getElementById('scroll-progress');
   const nav = document.getElementById('navbar');
+  let ticking = false;
 
-  window.addEventListener('scroll', () => {
+  function updateScrollState() {
     const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     if (bar) bar.style.width = pct + '%';
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateScrollState);
   }, { passive: true });
+
+  updateScrollState();
 })();
 
 // ══════════════════════════════════
@@ -85,6 +107,7 @@
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const particleCount = prefersReducedMotion ? 0 : (isMobile ? 48 : 130);
+  let animationFrameId = null;
 
   function resize() {
     W = canvas.width = window.innerWidth;
@@ -140,13 +163,34 @@
   }
 
   function animate() {
+    if (document.hidden) {
+      animationFrameId = null;
+      return;
+    }
     ctx.fillStyle = 'rgba(2,5,16,0.16)';
     ctx.fillRect(0, 0, W, H);
     particles.forEach(p => { p.update(); p.draw(); });
     drawConnections();
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
   }
-  animate();
+
+  function startAnimation() {
+    if (!particles.length || animationFrameId !== null) return;
+    animationFrameId = requestAnimationFrame(animate);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+      return;
+    }
+    startAnimation();
+  });
+
+  startAnimation();
 })();
 
 // ══════════════════════════════════

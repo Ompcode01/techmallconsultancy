@@ -1,78 +1,83 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const status = document.getElementById('contact-status');
   const form = document.getElementById('contactForm');
-  const iframe = document.getElementById('contact-mail-frame');
   const btn = document.querySelector('.btn-submit');
+  const status = document.getElementById('contact-status');
 
-  if (iframe && form) {
-    let hasSubmitted = false;
+  if (!form) return;
 
-    iframe.addEventListener('load', () => {
-      if (!hasSubmitted) return;
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
+    const name = document.getElementById('name')?.value.trim() || '';
+    const email = document.getElementById('email')?.value.trim() || '';
+    const service = document.getElementById('service')?.value || '';
+    const message = document.getElementById('message')?.value.trim() || '';
+
+    // ✅ Validation
+    if (!name) {
+      alert('Please fill in your full name.');
+      return;
+    }
+    if (!email) {
+      alert('Please fill in your email address.');
+      return;
+    }
+    if (!phone) {
+      alert('Please fill in your phone number.');
+      return;
+    }
+    if (!service) {
+      alert('Please select a service.');
+      return;
+    }
+    if (!message) {
+      alert('Please enter your message.');
+      return;
+    }
+
+    // ✅ UI Loading State
+    btn.disabled = true;
+    btn.textContent = '⏳ Sending...';
+    if (status) {
+      status.textContent = 'Sending your message...';
+      status.style.color = 'var(--text-muted)';
+    }
+
+    // ✅ Send using EmailJS
+    emailjs.sendForm(
+      "service_19jpgfl",        // your service ID
+      "template_unrsc1c",       // your template ID
+      this
+    )
+    .then(() => {
       if (status) {
-        status.textContent = 'Message sent. Please check ayusharbindkumar@gmail.com and confirm FormSubmit activation if needed.';
+        status.textContent = '✅ Message sent successfully!';
         status.style.color = '#00ff88';
       }
-      if (btn) {
-        btn.textContent = '✅ Message Sent';
-        btn.style.background = 'linear-gradient(135deg, #00ff88, #00cc66)';
-        btn.disabled = false;
-      }
+
+      btn.textContent = '✅ Message Sent';
+      btn.style.background = 'linear-gradient(135deg, #00ff88, #00cc66)';
 
       form.reset();
 
       setTimeout(() => {
-        if (btn) {
-          btn.textContent = '⚡ Send Message';
-          btn.style.background = '';
-        }
+        btn.textContent = '⚡ Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
       }, 4000);
-    });
+    })
+    .catch((error) => {
+      console.error(error);
 
-    form.dataset.ready = 'true';
-    form.dataset.submitted = 'false';
-    form.addEventListener('submit', () => {
-      hasSubmitted = true;
-      form.dataset.submitted = 'true';
+      if (status) {
+        status.textContent = '❌ Failed to send. Try again later.';
+        status.style.color = 'red';
+      }
+
+      btn.textContent = '❌ Failed';
+      btn.disabled = false;
     });
-  }
+  });
 });
-
-function handleSubmit(event) {
-  const form = document.getElementById('contactForm');
-  const btn = document.querySelector('.btn-submit');
-  const status = document.getElementById('contact-status');
-  const name = document.getElementById('name')?.value.trim() || '';
-  const email = document.getElementById('email')?.value.trim() || '';
-  const message = document.getElementById('message')?.value.trim() || '';
-
-  if (!form || !btn) return false;
-  if (!name) {
-    alert('Please fill in your full name.');
-    return false;
-  }
-  if (!email) {
-    alert('Please fill in your email address.');
-    return false;
-  }
-  if (!document.getElementById('service')?.value) {
-    alert('Please select a service.');
-    return false;
-  }
-  if (!message) {
-    alert('Please enter your message.');
-    return false;
-  }
-
-  btn.disabled = true;
-  btn.textContent = '⏳ Sending...';
-  if (status) {
-    status.textContent = 'Sending your message...';
-    status.style.color = 'var(--text-muted)';
-  }
-
-  return true;
-}
